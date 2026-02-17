@@ -91,7 +91,7 @@ subprojects {
         implementation("androidx.core:core-ktx:1.16.0") // Untuk Log dan utilitas Android
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1") // Untuk coroutines
 
-    }I
+    }
 }
 
 task<Delete>("clean") {
