@@ -13,7 +13,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.7.3") // Jangan diganti ke versi terbaru, karena ada masalah dengan versi terbaru
         classpath("com.github.recloudstream:gradle:-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
     }
 }
 
@@ -91,7 +91,7 @@ subprojects {
         implementation("androidx.core:core-ktx:1.16.0") // Untuk Log dan utilitas Android
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1") // Untuk coroutines
 
-    }
+    }I
 }
 
 task<Delete>("clean") {
