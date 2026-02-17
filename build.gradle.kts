@@ -20,15 +20,11 @@ buildscript {
 
     }
 
-
-
     dependencies {
 
         classpath("com.android.tools.build:gradle:8.7.3")
 
         classpath("com.github.recloudstream:gradle:-SNAPSHOT")
-
-        // Gunakan 1.9.24 agar stabil dengan Cloudstream Core saat ini
 
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
 
@@ -56,8 +52,6 @@ allprojects {
 
 fun Project.cloudstream(configuration: CloudstreamExtension.() -> Unit) = extensions.getByName<CloudstreamExtension>("cloudstream").configuration()
 
-
-
 fun Project.android(configuration: BaseExtension.() -> Unit) = extensions.getByName<BaseExtension>("android").configuration()
 
 
@@ -74,8 +68,6 @@ subprojects {
 
     cloudstream {
 
-        // Ganti URL ini dengan URL repo fork kamu sendiri jika perlu
-
         setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/DanX-007/StremIndo")
 
         authors = listOf("DanX-007")
@@ -88,8 +80,6 @@ subprojects {
 
         namespace = "com.tekuma25"
 
-
-
         defaultConfig {
 
             minSdk = 21
@@ -100,8 +90,6 @@ subprojects {
 
         }
 
-
-
         compileOptions {
 
             sourceCompatibility = JavaVersion.VERSION_1_8
@@ -110,23 +98,13 @@ subprojects {
 
         }
 
-
-
         tasks.withType<KotlinJvmCompile> {
 
             compilerOptions {
 
                 jvmTarget.set(JvmTarget.JVM_1_8)
 
-                freeCompilerArgs.addAll(
-
-                    "-Xno-call-assertions",
-
-                    "-Xno-param-assertions",
-
-                    "-Xno-receiver-assertions"
-
-                )
+                freeCompilerArgs.addAll("-Xno-call-assertions", "-Xno-param-assertions", "-Xno-receiver-assertions")
 
                 allWarningsAsErrors.set(false)
 
@@ -144,11 +122,7 @@ subprojects {
 
         val implementation by configurations
 
-        
-
         cloudstream("com.lagradost:cloudstream3:pre-release")
-
-
 
         implementation(kotlin("stdlib"))
 
